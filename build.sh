@@ -3,7 +3,6 @@ TAG=deploy-`date "+%Y-%m-%d-%HT%M-%S"`
 
 # Step 1. Use the Access token in the `astro auth login` command
 docker login images.astronomer.cloud -u $ASTRONOMER_KEY_ID -p $ASTRONOMER_KEY_SECRET
-# docker login images.astronomer.cloud -u 5tXnWNUEe4a4zypgeFvhgdNePxbIORVg -p _mP2QYVmmrowZRh93mgpXkbVMa-aYmXayPWcw2_qRFCJovS7g0_DZNfGzUH3-1Ha
 
 # Step 2. Request the Organization Id
 

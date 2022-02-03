@@ -1,6 +1,3 @@
-# install jq
-brew install jq
-
 # Create time stamp
 TAG=deploy-`date "+%Y-%m-%d-%HT%M-%S"`
 

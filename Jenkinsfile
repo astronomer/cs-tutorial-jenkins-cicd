@@ -8,14 +8,14 @@ pipeline {
            sh 'docker build . -t images.astronomer.cloud/$ORGANIZATION_ID/$DEPLOYMENT_ID:$BUILD_TAG'
            sh 'docker login images.astronomer.cloud -u $ASTRONOMER_KEY_ID -p $ASTRONOMER_KEY_SECRET'
            sh 'docker push images.astronomer.cloud/$ORGANIZATION_ID/$DEPLOYMENT_ID:$BUILD_TAG'
-           sh `TOKEN=$( curl --location --request POST "https://auth.astronomer.io/oauth/token" \
+           sh 'TOKEN=$( curl --location --request POST "https://auth.astronomer.io/oauth/token" \
             --header "content-type: application/json" \
             --data-raw "{
                 \"client_id\": \"$ASTRONOMER_KEY_ID\",
                 \"client_secret\": \"$ASTRONOMER_KEY_SECRET\",
                 \"audience\": \"astronomer-ee\",
-                \"grant_type\": \"client_credentials\"}" | jq -r '.access_token' )`
-           sh `IMAGE=$( curl --location --request POST "https://api.astronomer.io/hub/v1" \
+                \"grant_type\": \"client_credentials\"}" | jq -r '.access_token' )'
+           sh 'IMAGE=$( curl --location --request POST "https://api.astronomer.io/hub/v1" \
             --header "Authorization: Bearer $TOKEN" \
             --header "Content-Type: application/json" \
             --data-raw "{
@@ -26,8 +26,8 @@ pipeline {
                         \"tag\" : \"$TAG\"
                         }
                     }
-                }" | jq -r '.data.imageCreate.id')`
-           sh `curl --location --request POST "https://api.astronomer.io/hub/v1" \
+                }" | jq -r '.data.imageCreate.id')'
+           sh 'curl --location --request POST "https://api.astronomer.io/hub/v1" \
             --header "Authorization: Bearer $TOKEN" \
             --header "Content-Type: application/json" \
             --data-raw "{
@@ -39,7 +39,7 @@ pipeline {
                         \"repository\" : \"images.astronomer.cloud/$ORGANIZATION_ID/$DEPLOYMENT_ID\"
                         }
                     }
-                }"`
+                }"'
          }
        }
      }

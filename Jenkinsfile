@@ -14,7 +14,7 @@ pipeline {
                 \"client_id\": \"$ASTRONOMER_KEY_ID\",
                 \"client_secret\": \"$ASTRONOMER_KEY_SECRET\",
                 \"audience\": \"astronomer-ee\",
-                \"grant_type\": \"client_credentials\"}" | jq -r '.access_token' )'
+                \"grant_type\": \"client_credentials\"}" | jq -r ".access_token" )'
            sh 'IMAGE=$( curl --location --request POST "https://api.astronomer.io/hub/v1" \
             --header "Authorization: Bearer $TOKEN" \
             --header "Content-Type: application/json" \

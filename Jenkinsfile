@@ -9,6 +9,7 @@ pipeline {
        }
        steps {
          script {
+           sh "chmod +x -R ${env.WORKSPACE}"
            sh('./build.sh')
          }
        }

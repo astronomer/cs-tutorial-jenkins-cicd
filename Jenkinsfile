@@ -9,6 +9,7 @@ pipeline {
        }
        steps {
          script {
+           sh apt-get install -y jq
            sh "chmod +x -R ${env.WORKSPACE}"
            sh('./build.sh')
          }

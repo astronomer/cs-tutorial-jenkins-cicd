@@ -1,6 +1,3 @@
-# install jq
-apt-get install -y jq
-
 # Create time stamp
 TAG=deploy-`date "+%Y-%m-%d-%HT%M-%S"`
 

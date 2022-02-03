@@ -9,7 +9,7 @@ pipeline {
        }
        steps {
          script {
-           sh('build.sh')
+           sh('./build.sh')
          }
        }
      }

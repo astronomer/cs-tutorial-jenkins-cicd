@@ -16,7 +16,7 @@ from airflow.decorators import dag, task # DAG and task decorators for interfaci
     # run will be for the next 30 mins, per the schedule_interval
     catchup=False,
     tags=['example']) # If set, this tag is shown in the DAG view of the Airflow UI
-def test2():
+def test3():
     """
     ### Basic ETL Dag
     This is a simple ETL data pipeline example that demonstrates the use of
@@ -66,4 +66,4 @@ def test2():
     order_summary = transform(order_data)
     load(order_summary["total_order_value"])
 
-test2 = test2()
+test3 = test3()

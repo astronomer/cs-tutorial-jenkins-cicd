@@ -4,7 +4,7 @@ pipeline {
      stage('Deploy to astronomer') {
        when {
         expression {
-          return env.GIT_BRANCH == "origin/master"
+          return env.GIT_BRANCH == "origin/main"
         }
        }
        steps {

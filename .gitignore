@@ -1,3 +1,5 @@
 .git
 .env
 airflow_settings.yaml
+.idea/
+**/.DS_Store
